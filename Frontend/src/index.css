@@ -1,0 +1,16 @@
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.main {
+  background-image: url('/xyz.jpg'); /* if in public folder */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh;
+}

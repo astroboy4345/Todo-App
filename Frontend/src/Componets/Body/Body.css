@@ -113,7 +113,14 @@ textarea:focus {
     max-width: 250px;
     height: fit-content;
     padding: 8px;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     margin: 5px;
-    background-color: rgb(180, 253, 180);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+     background: #fdfdfd;
+      color: #444;
     white-space: pre-wrap;
+}
+.contents :hover{
+    transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(232, 229, 229, 0.15);
 }

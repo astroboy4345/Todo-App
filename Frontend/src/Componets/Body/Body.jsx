@@ -50,7 +50,7 @@ const Body = () => {
           <input
             type="text"
             value={header}
-            placeholder="Enter your Header..."
+            placeholder="Title..."
             onChange={(e) => setHeader(e.target.value)}
           />
           <textarea
@@ -58,7 +58,7 @@ const Body = () => {
             id="text"
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder="Enter your task..."
+            placeholder="...."
           />
         </div>
         <img src={add} alt="Add" onClick={OnclickAdd} />
