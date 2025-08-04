@@ -5,30 +5,30 @@ import clear from '../../assets/delete1.png';
 import add from '../../assets/plus2.png';
 import deleteimg from '../../assets/delete.png';
 
-const BASE_URL = 'http://localhost:5000/api/notes'; // Replace with your cloud base URL when ready
+const BASE_URL = 'http://localhost:5000/api/notes'; 
 
-const Body = () => {
+const Body = ({ searchTerm = "" }) => {
   const [header, setHeader] = useState("");
   const [content, setContent] = useState("");
   const [store, setStore] = useState([]);
 
-  // Fetch notes on component mount
+
   useEffect(() => {
     axios.get(BASE_URL)
       .then(res => setStore(res.data))
-      .catch(err => console.error('Error in fetching notes', err));
+      .catch(err => console.error('Error in fetching notes:', err));
   }, []);
 
-  // Delete note by ID
+
   const handleDelete = (id) => {
     axios.delete(`${BASE_URL}/${id}`)
       .then(() => {
         setStore(prev => prev.filter(note => note._id !== id));
       })
-      .catch(err => console.error('Error deleting the data', err));
+      .catch(err => console.error('Error deleting note:', err));
   };
 
-  // Add new note
+  // Add a new note
   const OnclickAdd = () => {
     if (header.trim() === '' && content.trim() === '') return;
 
@@ -43,6 +43,11 @@ const Body = () => {
       .catch(err => console.error('Error adding note:', err));
   };
 
+  const filteredNotes = store.filter(note =>
+    (note.header?.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (note.content?.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
+
   return (
     <div className='Body'>
       <div className="input-box">
@@ -54,11 +59,9 @@ const Body = () => {
             onChange={(e) => setHeader(e.target.value)}
           />
           <textarea
-            name="text"
-            id="text"
             value={content}
             onChange={(e) => setContent(e.target.value)}
-            placeholder="...."
+            placeholder="Content..."
           />
         </div>
         <img src={add} alt="Add" onClick={OnclickAdd} />
@@ -69,19 +72,25 @@ const Body = () => {
       </div>
 
       <div className="show-task">
-        {store.map((note, index) => (
-            
-          <div className="contents" key={note._id || index}>
-            <div className="content-inner">
-              <h3>{note.header}</h3>
-              <div className="c-i-i">
-                <img src={deleteimg} alt="Delete" onClick={() => {console.log("Deleting ID:", note._id);  handleDelete(note._id)}} />
+        {filteredNotes.length === 0 ? (
+          <p className="no-results">No matching notes found.</p>
+        ) : (
+          filteredNotes.map((note) => (
+            <div className="contents" key={note._id}>
+              <div className="content-inner">
+                <h2>{note.header}</h2>
               </div>
+              <p>{note.content}</p>
+                      <div className="c-i-i">
+                  <img
+                    src={deleteimg}
+                    alt="Delete"
+                    onClick={() => handleDelete(note._id)}
+                  />
+                </div>
             </div>
-            <p>{note.content}</p> 
-
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );

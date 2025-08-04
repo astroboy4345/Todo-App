@@ -17,6 +17,15 @@
     position: relative;
 }
 
+
+.no-results {
+  text-align: center;
+  color: gray;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+
 .input-box{
    align-items: center;
    display: flex;
@@ -53,9 +62,7 @@
    font-weight: 400;
 }
 
-.contents :hover .c-i-i{
-    display: flex;
-}
+
 
 .input-box textarea{
     padding: 10px;
@@ -88,8 +95,8 @@
 input:focus,
 textarea:focus {
   outline: none;
-  border: none;         /* optional: removes border entirely */
-  box-shadow: none;     /* optional: removes glow effect in some browsers */
+  border: none;          
+   box-shadow: none; 
 }
 
 
@@ -99,28 +106,42 @@ textarea:focus {
    flex-direction: row;
    margin: 20px;
    flex-wrap: wrap-reverse;
-   cursor: pointer;
+    column-count: 2; 
+  column-gap: 16px;
+  padding: 16px;
 }
 .contents{
     display: flex;
+    cursor: pointer;
     min-width: 90px;
     align-items: center;
     justify-content: center;
+    position: relative;
     border: 2px solid rgb(41, 44, 46);
     border-radius: 10px;
+    break-inside: avoid;
+  background-color: #f8f8f8;
     display: flex;
     flex-direction: column;
-    max-width: 250px;
+    max-width: 500px;
+    text-wrap: wrap;
     height: fit-content;
     padding: 8px;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+     box-shadow: 0 4px 12px rgba(247, 62, 62, 0.5);
     margin: 5px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-     background: #fdfdfd;
-      color: #444;
+     background: #5e7f5cad;
+      color: #ffffff;
     white-space: pre-wrap;
 }
 .contents :hover{
     transform: translateY(-4px);
+    
   box-shadow: 0 6px 18px rgba(232, 229, 229, 0.15);
+}
+.contents:hover .c-i-i{
+    position: absolute;
+    display: flex;
+    top: 2px;
+    right: 3px;
 }
