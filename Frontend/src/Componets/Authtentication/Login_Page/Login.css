@@ -103,3 +103,8 @@
     background-color: aliceblue;
     border :1px solid black ;
 }
+
+.headings img{
+     width: 55px;
+    height: 55px;
+}

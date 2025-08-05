@@ -4,6 +4,7 @@
     display: flex;
     gap: 10px;
     margin-top: 0px;
+    position: relative;
     padding: 10px;
 }
 .headingse{
@@ -12,6 +13,9 @@
     margin: 10px 10px;
     display: flex;
     border-radius: 50px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
     align-items: center;
     justify-content: flex-start;
     width: fit-content;
@@ -42,7 +46,48 @@
 
 
 
-.heading img{
+.headingse img{
     width: 55px;
     height: 55px;
+}
+
+.upper-box .profile{
+    display: flex;
+    align-items: flex-end;
+    justify-items: auto;
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    cursor: pointer;
+    right: 10px;
+}
+
+.profile img{
+    width: 55px;
+    height: 55px;
+}
+
+.show-info{
+    display: none;
+}
+
+.profile-info{
+    background-color: rgb(223, 87, 87);
+    border: 2px solid rgb(0, 0, 0);
+    color: rgb(197, 253, 171);
+    position: absolute;
+    padding: 15px;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px ;
+    top: 70px;
+    right: 20px;
+}
+
+.profile-info button{
+    padding: 15px 45px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 30px;
 }

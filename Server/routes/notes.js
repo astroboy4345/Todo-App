@@ -8,6 +8,7 @@ router.get("/",async (req,res)=>{
 });
 
 
+
 router.post("/",async (req,res)=>{
     const {header,content} = req.body;
     const newNote = new Note({header,content});

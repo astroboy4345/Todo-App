@@ -9,6 +9,7 @@ import Sign_in from './Componets/Authtentication/Sign_in/Sign_in';
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
+
   return (
     <BrowserRouter>
       <Routes> 
@@ -23,7 +24,7 @@ const App = () => {
         />
         
         <Route path="/login" element={<Login />} />
-        <Route path='/sign-in' element={<Sign_in/>}/>
+        <Route path='/signin' element={<Sign_in/>}/>
       </Routes>
     </BrowserRouter>
   );
