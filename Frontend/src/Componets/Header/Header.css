@@ -1,10 +1,12 @@
 .upper-box{
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     display: flex;
+    gap: 10px;
     margin-top: 0px;
+    padding: 10px;
 }
-.heading{
+.headingse{
     padding: 10px 40px;
     border: 1px solid black;
     margin: 10px 10px;
@@ -26,6 +28,7 @@
     box-sizing: border-box;
     min-width: 50%;
     border: none;
+    gap: 15px;
 }
 
 .search-box input{

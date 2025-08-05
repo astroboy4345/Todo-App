@@ -81,13 +81,14 @@ const Body = ({ searchTerm = "" }) => {
                 <h2>{note.header}</h2>
               </div>
               <p>{note.content}</p>
-                      <div className="c-i-i">
+                <div className="c-i-i">
                   <img
                     src={deleteimg}
                     alt="Delete"
                     onClick={() => handleDelete(note._id)}
                   />
                 </div>
+                <div className="more">more....</div>
             </div>
           ))
         )}

@@ -125,7 +125,14 @@ textarea:focus {
     flex-direction: column;
     max-width: 500px;
     text-wrap: wrap;
-    height: fit-content;
+    max-height: fit-content;
+    overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
     padding: 8px;
      box-shadow: 0 4px 12px rgba(247, 62, 62, 0.5);
     margin: 5px;
